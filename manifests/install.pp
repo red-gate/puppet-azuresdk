@@ -11,6 +11,7 @@ define azuresdk::install($version, $tempfolder) {
   ensure_resource('file', [$tempfolder, $folder], { ensure => directory })
 
   $baseurl = $::azuresdk::params::download_base_urls[$version]
+  $authoring_tools_version = $::azuresdk::params::authoring_tools_display_versions[$version]
 
   #
   # Microsoft Azure Authoring Tools
@@ -20,7 +21,7 @@ define azuresdk::install($version, $tempfolder) {
     require => File[$folder],
   }
   ->
-  package { "Microsoft Azure Authoring Tools - v${version}":
+  package { "Microsoft Azure Authoring Tools - ${authoring_tools_version}":
     source => "${folder}/MicrosoftAzureAuthoringTools-${::architecture}.msi",
   }
   ->

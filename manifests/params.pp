@@ -8,4 +8,10 @@ class azuresdk::params {
     '2.8' => 'https://download.microsoft.com/download/D/E/B/DEB395C9-C875-47F3-96F7-55C9A8FCD869',
   }
 
+  $authoring_tools_display_versions = {
+    '2.6' => 'v2.6',
+    '2.7' => 'v2.7.1',
+    '2.8' => 'v2.8',
+  }
+
 }
