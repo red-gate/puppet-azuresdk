@@ -1,0 +1,36 @@
+{
+  "name": "redgate-azuresdk",
+  "version": "0.0.1",
+  "author": "redgate",
+  "summary": "Install Azure SDKs.",
+  "license": "Apache-2.0",
+  "source": "https://github.com/red-gate/puppet-azuresdk",
+  "project_page": "https://github.com/red-gate/puppet-azuresdk",
+  "issues_url": "https://github.com/red-gate/puppet-azuresdk/issues",
+  "description": "A puppet module that can be used to install various versions of some bits of the Azure SDK.",
+  "tags": [
+    "microsoft",
+    "windows",
+    "azure",
+    "sdk"
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Windows",
+      "operatingsystemrelease": [
+        "Server 2012 R2",
+        "10"
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 3.0.0 <5.0.0"
+    },
+    {
+      "name": "puppet/archive",
+      "version_requirement": ">= 0.4.0 <0.5.0"
+    }
+  ]
+}
