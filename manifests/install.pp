@@ -12,6 +12,7 @@ define azuresdk::install($version, $tempfolder) {
 
   $baseurl = $::azuresdk::params::download_base_urls[$version]
   $authoring_tools_version = $::azuresdk::params::authoring_tools_display_versions[$version]
+  $dotnetlibraries_installer_guid = $::azuresdk::params::dotnetlibraries_installer_guids[$version]
 
   #
   # Microsoft Azure Authoring Tools
@@ -34,8 +35,16 @@ define azuresdk::install($version, $tempfolder) {
     require => File[$folder],
   }
   ->
-  package { "Microsoft Azure Libraries for .NET – ${version}":
+  package { "Microsoft Azure Libraries for .NET - ${version}":
     source => "${folder}/MicrosoftAzureLibsForNet-${::architecture}.msi",
+  }
+  ->
+  # We need this for the time being to remove the special \u2013 unicode character from the display name
+  # of the Azure Libraries installer to keep puppet happy. :/
+  registrykey { "Hack 'Microsoft Azure Libraries for .NET - ${version}' display name to remove unicode character":
+    key     => "HKLM:SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\${dotnetlibraries_installer_guid}",
+    subName => 'DisplayName',
+    data    => "Microsoft Azure Libraries for .NET - ${version}",
   }
 
   #

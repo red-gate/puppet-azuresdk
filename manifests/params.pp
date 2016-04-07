@@ -14,4 +14,10 @@ class azuresdk::params {
     '2.8' => 'v2.8',
   }
 
+  $dotnetlibraries_installer_guids = {
+    '2.6' => '{E083D718-4414-45A6-B25B-7ADE4D483FD4}',
+    '2.7' => '{CBF95044-8CCB-492A-B46C-87CE75325CAD}',
+    '2.8' => '{4216CA86-CCF4-46BA-875D-079E3F93796C}',
+  }
+
 }
