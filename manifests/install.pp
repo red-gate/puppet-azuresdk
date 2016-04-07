@@ -27,6 +27,18 @@ define azuresdk::install($version, $tempfolder) {
   ->
 
   #
+  # Microsoft Azure Libraries for .NET
+  #
+  archive { "${folder}/MicrosoftAzureLibsForNet-${::architecture}.msi":
+    source  => "${baseurl}/MicrosoftAzureLibsForNet-${::architecture}.msi",
+    require => File[$folder],
+  }
+  ->
+  package { "Microsoft Azure Libraries for .NET – ${version}":
+    source => "${folder}/MicrosoftAzureLibsForNet-${::architecture}.msi",
+  }
+
+  #
   # Microsoft Azure Tools for Microsoft Visual Studio 2013
   #
   archive { "${folder}/MicrosoftAzureTools.VS120.exe":
