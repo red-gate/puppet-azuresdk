@@ -20,4 +20,11 @@ class azuresdk::params {
     '2.8' => '{4216CA86-CCF4-46BA-875D-079E3F93796C}',
   }
 
+  $powershellmodule_months = {
+    '1.3.0' => 'March',
+  }
+
+  $powershellmodule_years = {
+    '1.3.0' => '2016',
+  }
 }
